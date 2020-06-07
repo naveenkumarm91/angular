@@ -9,15 +9,17 @@ import { products } from '../products';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-product;
+   prod;
 
-  constructor(
-    private route: ActivatedRoute,
-  ) { }
+  constructor(private route: ActivatedRoute) {
+     window.alert('constructor(private route: ActivatedRoute in this page ');
+   }
 
   ngOnInit() {
+    window.alert('ngOnInit() implemnts in this page ');
   this.route.paramMap.subscribe(params => {
-    this.product = products[+params.get('productId')];
+    this.prod = products[+params.get('productId')];
+    window.alert('You will see prod '+ this.prod.name);
   });
 }
 
